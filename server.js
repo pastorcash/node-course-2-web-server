@@ -58,6 +58,12 @@ app.get('/about', (req,res) => {
     });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+    });
+});
+
 // /bad - send back json with errorMesage
 app.get('/bad', (req,res) => {
     res.send({
@@ -65,14 +71,6 @@ app.get('/bad', (req,res) => {
         errorMesage: 'Invalid request. Data not available.'
     });
 })
-
-app.get('/maintenance', (req, res) => {
-    // res.send('<h1>Hello Express!</h1>');
-    res.render('maintenance.hbs', {
-        pageTitle: 'Maintenance Page',
-        maintenanceMessage: 'Working on it. We will be back soon.',
-    });
-});
 
 app.listen(port, () => {
     console.log(`Server is up on port: ${port}`)
